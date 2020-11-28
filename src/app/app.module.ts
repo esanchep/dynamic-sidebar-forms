@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TableComponent } from './table/table.component';
 import { DetailPanelComponent } from './detail-panel/detail-panel.component';
+import { TableComponent } from './table/table.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { DetailPanelComponent } from './detail-panel/detail-panel.component';
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
+    MatIconModule,
     MatSidenavModule,
     MatTableModule
   ],

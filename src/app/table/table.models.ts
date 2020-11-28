@@ -1,4 +1,4 @@
-export interface SelectedRow {
+export interface SelectedPeriodicElement {
   index: number;
   row: PeriodicElement;
 }

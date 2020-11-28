@@ -1,1 +1,13 @@
-<p>detail-panel works!</p>
+<div>
+  <div>
+    <mat-icon>{{ getIcon() }}</mat-icon>
+  </div>
+  <div>{{ getTitle() }}<br />{{ getId() }}</div>
+</div>
+
+<div *ngFor="let section of getSections()">
+  <div *ngFor="let input of section.inputs">
+    <label>{{ input.label }}</label>
+    <input type="text" [value]="input.value" />
+  </div>
+</div>
