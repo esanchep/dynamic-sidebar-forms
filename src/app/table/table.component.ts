@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DetailPanelService } from './../detail-panel/detail-panel.service';
 import { ELEMENT_DATA } from './table-data.mock';
 import { PeriodicElement, SelectedRow } from './table.models';
 
@@ -12,16 +13,24 @@ export class TableComponent implements OnInit {
   dataSource = ELEMENT_DATA;
   selectedRow: SelectedRow | undefined;
 
-  constructor() { }
+  constructor(
+    private detailPanelService: DetailPanelService
+  ) { }
 
   ngOnInit(): void { }
 
-  onSelectRow(index: number, row: PeriodicElement): void {
-    this.setSelectedRow(index, row);
+  onRowClick(index: number, row: PeriodicElement): void {
+    this.toggleSelectRow(index, row);
   }
 
-  private setSelectedRow(index: number, row: PeriodicElement): void {
-    this.selectedRow = { index, row };
+  private toggleSelectRow(index: number, row: PeriodicElement): void {
+    if (!this.selectedRow || this.selectedRow.index !== index) {
+      this.selectedRow = { index, row };
+      this.detailPanelService.openDetailPanel(true);
+    } else {
+      this.selectedRow = undefined;
+      this.detailPanelService.openDetailPanel(false);
+    }
   }
 
   isActiveRow(index: number): boolean {
