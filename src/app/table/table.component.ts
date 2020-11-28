@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
+export interface SelectedRow {
+  index: number;
+  row: PeriodicElement;
+}
+
 export interface PeriodicElement {
   name: string;
   position: number;
@@ -28,11 +33,22 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class TableComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
+  selectedRow: SelectedRow | undefined;
 
   constructor() { }
 
   ngOnInit(): void { }
 
-  onSelectRow(selectedRow: PeriodicElement): void { }
+  onSelectRow(selectedRow: PeriodicElement, rowIndex: number): void {
+    this.selectSelectedRow(selectedRow, rowIndex);
+  }
+
+  isActiveRow(index: number): boolean {
+    return index === this.selectedRow?.index;
+  }
+
+  private selectSelectedRow(row: PeriodicElement, index: number): void {
+    this.selectedRow = { index, row };
+  }
 
 }
