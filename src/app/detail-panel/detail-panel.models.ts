@@ -3,7 +3,7 @@ export const detailPanelTypes = {
 };
 
 export enum InputType {
-  INPUT = 'input',
+  INPUT = 'text',
   CHECKBOX = 'checkbox'
 }
 

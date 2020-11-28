@@ -32,7 +32,7 @@ export class DetailPanelService {
       id: data.row.position.toString(),
       sections: [
         {
-          title: '',
+          title: 'A section title',
           showToggle: false,
           inputs: [
             {

@@ -1,13 +1,16 @@
-<div>
+<div class="header full-width">
   <div>
     <mat-icon>{{ getIcon() }}</mat-icon>
   </div>
   <div>{{ getTitle() }}<br />{{ getId() }}</div>
 </div>
 
-<div *ngFor="let section of getSections()">
-  <div *ngFor="let input of section.inputs">
-    <label>{{ input.label }}</label>
-    <input type="text" [value]="input.value" />
+<div class="sections">
+  <div class="section" *ngFor="let section of getSections()">
+    {{ section.title }}
+    <div *ngFor="let input of section.inputs">
+      <label>{{ input.label }}</label>
+      <input [type]="input.type" [value]="input.value" />
+    </div>
   </div>
 </div>
